@@ -31,7 +31,11 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - run: npx eslint src/ --plugin security --rule 'security/detect-non-literal-fs-filename: warn'
+      - name: Run ESLint Security
+        run: |
+          npx eslint src/ \
+            --plugin security \
+            --rule "security/detect-non-literal-fs-filename: warn"
 
   # ── 3. Dependency Audit ──────────────────────────────────────
   dependency-audit:
