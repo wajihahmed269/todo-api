@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm install
       - name: Run ESLint Security
         run: |
           npx eslint src/ \
@@ -46,7 +46,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm install
       - run: npm audit --audit-level=high
 
   # ── 4. Tests ─────────────────────────────────────────────────
@@ -58,7 +58,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm install
       - run: npm test
 
   # ── 5. Docker Build + Trivy Image Scan ───────────────────────
